@@ -1,6 +1,14 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "/",
+    "cleanUrls": true,
+    "trailingSlash": true,
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/stories/dist/"
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
