@@ -34,6 +34,9 @@
     @media (--motionOK) {
         --_travel-distance: 5vh;
     }
+    @media only screen and (max-width: 600px) {
+        max-inline-size: initial;
+    }
     font-family: Roboto,
     Helvetica,
     Arial,
