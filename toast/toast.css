@@ -1,58 +1,90 @@
 .gui-toast-group {
-  position: fixed;
-  z-index: 1;
-  inset-block-end: 0;
-  inset-inline: 0;
-  padding-block-end: 5vh;
-
-  display: grid;
-  justify-items: center;
-  justify-content: center;
-  gap: 1vh;
-
-  /* optimizations */
-  pointer-events: none;
+    position: fixed;
+    z-index: 1;
+    inset-block-end: 0;
+    inset-inline: 0;
+    padding-block-end: 5vh;
+    display: grid;
+    /* justify-items: center;
+    justify-content: center; */
+    gap: 1vh;
+    /* optimizations */
+    pointer-events: none;
+    padding: 24px;
 }
 
 .gui-toast {
-  --_duration: 3s;
-  --_bg-lightness: 90%;
-  --_travel-distance: 0;
+    --_duration: 3s;
+    --_bg-lightness: 90%;
+    --_travel-distance: 0;
+    font-family: system-ui, sans-serif;
+    color: black;
+    background: hsl(0 0% var(--_bg-lightness) / 90%);
+    max-inline-size: min(344px, 90vw);
+    padding-block: .5ch;
+    padding-inline: 1ch;
+    border-radius: 3px;
+    font-size: 1rem;
+    will-change: transform;
+    animation: fade-in .3s ease, slide-in .3s ease, fade-out .3s ease var(--_duration);
+    @media (--dark) {
+        color: white;
+        --_bg-lightness: 20%;
+    }
+    @media (--motionOK) {
+        --_travel-distance: 5vh;
+    }
+    font-family: Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+    border-radius: 4px;
+    box-shadow: none;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    display: flex;
+    padding: 6px 16px;
+    align-items: center;
+    /* width: max-content; */
+    /* min-width: 300px; */
+    backdrop-filter: blur(2px);
+}
 
-  font-family: system-ui, sans-serif;
-  color: black;
-  background: hsl(0 0% var(--_bg-lightness) / 90%);
-  
-  max-inline-size: min(25ch, 90vw);
-  padding-block: .5ch;
-  padding-inline: 1ch;
-  border-radius: 3px;
-  font-size: 1rem;
+.icon {
+    margin-right: 12px;
+    padding: 7px 0px;
+    display: flex;
+    font-size: 22px;
+    opacity: 0.9;
+}
 
-  will-change: transform;
-  animation: 
-    fade-in .3s ease,
-    slide-in .3s ease,
-    fade-out .3s ease var(--_duration);
-
-  @media (--dark) {
-    color: white;
-    --_bg-lightness: 20%;
-  }
-
-  @media (--motionOK) {
-    --_travel-distance: 5vh;
-  }
+.svg-icon {
+    user-select: none;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    fill: currentcolor;
+    flex-shrink: 0;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-size: inherit;
 }
 
 @keyframes fade-in {
-  from { opacity: 0 }
+    from {
+        opacity: 0;
+    }
 }
 
 @keyframes fade-out {
-  to { opacity: 0 }
+    to {
+        opacity: 0
+    }
 }
 
 @keyframes slide-in {
-  from { transform: translateY(var(--_travel-distance, 10px)) }
+    from {
+        transform: translateY(var(--_travel-distance, 10px))
+    }
 }

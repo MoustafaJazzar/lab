@@ -1,33 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap");
 @import "toast.css";
-
+@import "btn.css";
 @custom-media --motionOK (prefers-reduced-motion: no-preference);
 @custom-media --dark (prefers-color-scheme: dark);
-
 * {
-  box-sizing: border-box;
-  margin: 0;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 html {
-  block-size: 100%;
-  color-scheme: dark light;
+    block-size: 100%;
+    color-scheme: dark light;
 }
 
 body {
-  min-block-size: 100%;
-  font-family: system-ui, sans-serif;
-  
-  display: flex;
-  gap: 2ch;
-  align-items: center;
-  justify-content: center;
-
-  @media (max-width: 720px) {
-    flex-direction: column;
-  }
+    min-block-size: 100%;
+    font-family: system-ui, sans-serif;
+    display: flex;
+    gap: 2ch;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 720px) {
+        flex-direction: column;
+    }
 }
 
 button {
-  font-size: 1.5rem;
-  touch-action: manipulation;
+    --foreground: #424242;
+    --hover: rgba(255, 255, 255, 0.04);
+    font-size: 1.5rem;
+    touch-action: manipulation;
 }
