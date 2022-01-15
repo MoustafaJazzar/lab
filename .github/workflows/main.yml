@@ -11,6 +11,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       
+    - name: Build Landing Page
+      run: npm install && npm run build
+
     - name: Build Toast
       run: cd toast && npm install && npm run build
       
