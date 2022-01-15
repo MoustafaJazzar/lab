@@ -1,18 +1,26 @@
 {
-  "hosting": {
-    "public": "/",
-    "cleanUrls": true,
-    "trailingSlash": true,
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/stories/dist/"
-      }
-    ],
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ]
-  }
+    "hosting": {
+        "public": "/",
+        "cleanUrls": true,
+        "trailingSlash": true,
+        "redirects": [{
+            "source": "/",
+            "destination": "./dist/index.html"
+        }],
+        "rewrites": [{
+            "source": "**",
+            "destination": "/stories/dist/"
+        }],
+        "ignore": [
+            "firebase.json",
+            "**/.*",
+            "**/node_modules/**"
+        ]
+    },
+    "emulators": {
+        "hosting": {
+            "port": 2000,
+            "host": "localhost"
+        }
+    }
 }
