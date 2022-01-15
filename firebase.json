@@ -5,7 +5,8 @@
         "trailingSlash": true,
         "redirects": [{
             "source": "/",
-            "destination": "./dist/index.html"
+            "destination": "./dist/index.html",
+            "type": 301
         }],
         "rewrites": [{
             "source": "**",
