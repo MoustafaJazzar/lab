@@ -4,11 +4,8 @@
         "cleanUrls": true,
         "trailingSlash": true,
         "rewrites": [{
-            "source": "/",
-            "destination": "/dist"
-        }, {
             "source": "**",
-            "destination": "/stories/dist/"
+            "destination": "/dist"
         }],
         "ignore": [
             "firebase.json",
