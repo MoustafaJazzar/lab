@@ -3,14 +3,10 @@
         "public": "/",
         "cleanUrls": true,
         "trailingSlash": true,
-        "redirects": [{
-            "source": "/",
-            "destination": "./dist/index.html",
-            "type": 301
-        }],
+
         "rewrites": [{
             "source": "**",
-            "destination": "/stories/dist/"
+            "destination": "/dist/"
         }],
         "ignore": [
             "firebase.json",
