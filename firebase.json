@@ -5,8 +5,8 @@
         "trailingSlash": true,
 
         "rewrites": [{
-            "source": "**",
-            "destination": "/dist/"
+            "source": "*",
+            "destination": "./dist"
         }],
         "ignore": [
             "firebase.json",
