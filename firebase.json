@@ -5,7 +5,7 @@
         "trailingSlash": true,
         "rewrites": [{
             "source": "/",
-            "destination": "/dist/index.html"
+            "destination": "/dist"
         }, {
             "source": "**",
             "destination": "/stories/dist/"
