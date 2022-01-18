@@ -8,6 +8,10 @@
             "destination": "./dist/index.html",
             "type": 301
         }],
+        "rewrites": [{
+            "source": "**",
+            "destination": "/stories/dist/"
+        }],
         "ignore": [
             "firebase.json",
             "**/.*",
