@@ -1,0 +1,16 @@
+{
+    "name": "neu",
+    "version": "0.0.0",
+    "scripts": {
+        "start": "vite",
+        "dev": "vite",
+        "build": "vite build --base=./",
+        "serve": "vite preview"
+    },
+    "devDependencies": {
+        "vite": "^2.7.2"
+    },
+    "dependencies": {
+        "sass": "^1.49.0"
+    }
+}

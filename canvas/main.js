@@ -1,5 +1,5 @@
 import './style.scss'
-
+import { normalizeColor } from './utils';
 
 /*
  *   Stripe WebGl Gradient Animation
@@ -10,12 +10,6 @@ import './style.scss'
  */
 
 
-//Converting colors to proper format
-function normalizeColor(hexCode) {
-    return [(hexCode >> 16 & 255) / 255, (hexCode >> 8 & 255) / 255, (255 & hexCode) / 255]
-}["SCREEN", "LINEAR_LIGHT"].reduce((hexCode, t, n) => Object.assign(hexCode, {
-    [t]: n
-}), {});
 
 //Essential functionality of WebGl
 //t = width
@@ -50,9 +44,20 @@ class MiniGl {
                                         }
                                         material.uniforms = uniforms, material.uniformInstances = [];
 
-                                        const prefix = "\n              precision highp float;\n            ";
-                                        material.vertexSource = `\n              ${prefix}\n              attribute vec4 position;\n              attribute vec2 uv;\n              attribute vec2 uvNorm;\n              ${getUniformVariableDeclarations(_miniGl.commonUniforms,"vertex")}\n              ${getUniformVariableDeclarations(uniforms,"vertex")}\n              ${vertexShaders}\n            `,
-                                            material.Source = `\n              ${prefix}\n              ${getUniformVariableDeclarations(_miniGl.commonUniforms,"fragment")}\n              ${getUniformVariableDeclarations(uniforms,"fragment")}\n              ${fragments}\n            `,
+                                        const prefix = "precision highp float;";
+                                        material.vertexSource = `
+                                            ${prefix}
+                                            attribute vec4 position;
+                                            attribute vec2 uv;
+                                            attribute vec2 uvNorm;
+                                            ${getUniformVariableDeclarations(_miniGl.commonUniforms,"vertex")}
+                                            ${getUniformVariableDeclarations(uniforms,"vertex")}
+                                            ${vertexShaders}`,
+                                            material.Source = `
+                                            ${prefix}
+                                            ${getUniformVariableDeclarations(_miniGl.commonUniforms,"fragment")}
+                                            ${getUniformVariableDeclarations(uniforms,"fragment")}
+                                            ${fragments}`,
                                             material.vertexShader = getShaderByType(context.VERTEX_SHADER, material.vertexSource),
                                             material.fragmentShader = getShaderByType(context.FRAGMENT_SHADER, material.Source),
                                             material.program = context.createProgram(),
@@ -109,8 +114,7 @@ class MiniGl {
                                                     return name_no_prefix =
                                                         name_no_prefix.charAt(0).toUpperCase() +
                                                         name_no_prefix.slice(1),
-                                                        `uniform struct ${name_no_prefix} 
-                                  {\n` +
+                                                        `uniform struct ${name_no_prefix} {\n` +
                                                         Object.entries(uniform.value).map(([name, uniform]) =>
                                                             uniform.getDeclaration(name, type)
                                                             .replace(/^uniform/, ""))
@@ -286,7 +290,11 @@ class MiniGl {
   //Gradient object
   class Gradient {
     constructor(...t) {
-        e(this, "el", void 0), e(this, "cssVarRetries", 0), e(this, "maxCssVarRetries", 200), e(this, "angle", 0), e(this, "isLoadedClass", !1), e(this, "isScrolling", !1), /*e(this, "isStatic", o.disableAmbientAnimations()),*/ e(this, "scrollingTimeout", void 0), e(this, "scrollingRefreshDelay", 200), e(this, "isIntersecting", !1), e(this, "shaderFiles", void 0), e(this, "vertexShader", void 0), e(this, "sectionColors", void 0), e(this, "computedCanvasStyle", void 0), e(this, "conf", void 0), e(this, "uniforms", void 0), e(this, "t", 1253106), e(this, "last", 0), e(this, "width", void 0), e(this, "minWidth", 1111), e(this, "height", 600), e(this, "xSegCount", void 0), e(this, "ySegCount", void 0), e(this, "mesh", void 0), e(this, "material", void 0), e(this, "geometry", void 0), e(this, "minigl", void 0), e(this, "scrollObserver", void 0), e(this, "amp", 320), e(this, "seed", 5), e(this, "freqX", 14e-5), e(this, "freqY", 29e-5), e(this, "freqDelta", 1e-5), e(this, "activeColors", [1, 1, 1, 1]), e(this, "isMetaKey", !1), e(this, "isGradientLegendVisible", !1), e(this, "isMouseDown", !1), e(this, "handleScroll", () => {
+        e(this, "el", void 0), e(this, "cssVarRetries", 0), e(this, "maxCssVarRetries", 200), e(this, "angle", 0), e(this, "isLoadedClass", !1), e(this, "isScrolling", !1), /*e(this, "isStatic", o.disableAmbientAnimations()),*/ e(this, "scrollingTimeout", void 0), e(this, "scrollingRefreshDelay", 200), e(this, "isIntersecting", !1), e(this, "shaderFiles", void 0), e(this, "vertexShader", void 0), e(this, "sectionColors", void 0), e(this, "computedCanvasStyle", void 0), e(this, "conf", void 0), e(this, "uniforms", void 0), e(this, "t", 1253106), e(this, "last", 0), e(this, "width", void 0), e(this, "minWidth", 1111), e(this, "height", 600), e(this, "xSegCount", void 0), e(this, "ySegCount", void 0), e(this, "mesh", void 0), e(this, "material", void 0), e(this, "geometry", void 0), e(this, "minigl", void 0), e(this, "scrollObserver", void 0), e(this, "amp", 320), e(this, "seed", 5), e(this, "freqX", 14e-5), e(this, "freqY", 29e-5), e(this, "freqDelta", 1e-5),
+        e(this, "activeColors", [1, 1, 1, 1]),
+        e(this, "konamiCode", ["arrowup", "arrowup", "arrowdown", "arrowdown", "arrowleft", "arrowright", "arrowleft", "arrowright", "b", "a"]),
+        e(this, "konamiIndex", 0),
+        e(this, "isMetaKey", !1), e(this, "isGradientLegendVisible", !1), e(this, "isMouseDown", !1), e(this, "handleScroll", () => {
             clearTimeout(this.scrollingTimeout), this.scrollingTimeout = setTimeout(this.handleScrollEnd, this.scrollingRefreshDelay), this.isGradientLegendVisible && this.hideGradientLegend(), this.conf.playing && (this.isScrolling = !0, this.pause())
         }), e(this, "handleScrollEnd", () => {
             this.isScrolling = !1, this.isIntersecting && this.play()
@@ -296,7 +304,61 @@ class MiniGl {
             this.isGradientLegendVisible && (this.isMetaKey = e.metaKey, this.isMouseDown = !0, !1 === this.conf.playing && requestAnimationFrame(this.animate))
         }), e(this, "handleMouseUp", () => {
             this.isMouseDown = !1
-        }), e(this, "animate", e => {
+        }),
+        e(this, "handleKeyDown", e=>{
+            console.log(e.key);
+            if (this.checkKonami(e),
+            this.isGradientLegendVisible) {
+                switch (e.key) {
+                case "1":
+                    this.toggleColor(1);
+                    break;
+                case "2":
+                    this.toggleColor(2);
+                    break;
+                case "3":
+                    this.toggleColor(3);
+                    break;
+                case "4":
+                    this.toggleColor(0);
+                    break;
+                case "-":
+                    this.updateFrequency(this.freqDelta);
+                    break;
+                case "+":
+                    this.updateFrequency(-this.freqDelta);
+                    break;
+                case "_":
+                    this.updateFrequency(this.freqDelta);
+                    break;
+                case "=":
+                    this.updateFrequency(-this.freqDelta);
+                    break;
+                case "p":
+                    this.conf.playing ? this.pause() : this.play();
+                    break;
+                case "ArrowUp":
+                    e.preventDefault(),
+                    this.amp += 10;
+                    break;
+                case "ArrowDown":
+                    e.preventDefault(),
+                    this.amp -= 10;
+                    break;
+                case "ArrowLeft":
+                    this.freqX += this.freqDelta;
+                    break;
+                case "ArrowRight":
+                    this.freqX -= this.freqDelta
+                }
+                this.mesh.material.uniforms.u_vertDeform.value.noiseAmp.value = this.amp,
+                this.mesh.material.uniforms.u_global.value.noiseFreq.value = [this.freqX, this.freqY],
+                this.mesh.material.uniforms.u_active_colors.value = this.activeColors,
+                this.minigl.render()
+            }
+        }
+        ),
+        e(this, "animate", e => {
             if (!this.shouldSkipFrame(e) || this.isMouseDown) {
                 if (this.t += Math.min(e - this.last, 1e3 / 15), this.last = e, this.isMouseDown) {
                     let e = 160;
@@ -355,7 +417,14 @@ class MiniGl {
         )
     }
     disconnect() {
-        this.scrollObserver && (window.removeEventListener("scroll", this.handleScroll), window.removeEventListener("mousedown", this.handleMouseDown), window.removeEventListener("mouseup", this.handleMouseUp), window.removeEventListener("keydown", this.handleKeyDown), this.scrollObserver.disconnect()), window.removeEventListener("resize", this.resize)
+        this.scrollObserver && (
+            window.removeEventListener("scroll", this.handleScroll), 
+            window.removeEventListener("mousedown", this.handleMouseDown), 
+            window.removeEventListener("mouseup", this.handleMouseUp), 
+            window.removeEventListener("keydown", this.handleKeyDown), 
+            this.scrollObserver.disconnect()
+            );
+        window.removeEventListener("resize", this.resize)
     }
     initMaterial() {
         this.uniforms = {
@@ -462,6 +531,11 @@ class MiniGl {
     shouldSkipFrame(e) {
         return !!window.document.hidden || (!this.conf.playing || (parseInt(e, 10) % 2 == 0 || void 0))
     }
+    checkKonami(e) {
+        e.key.toLowerCase() === this.konamiCode[this.konamiIndex] ? this.konamiIndex += 1 : this.konamiIndex = 0,
+        this.konamiIndex > 1 && e.preventDefault(),
+        this.konamiIndex < this.konamiCode.length || this.showGradientLegend()
+    }
     updateFrequency(e) {
         this.freqX += e, this.freqY += e
     }
@@ -469,6 +543,7 @@ class MiniGl {
         this.activeColors[index] = 0 === this.activeColors[index] ? 1 : 0
     }
     showGradientLegend() {
+        console.log('show GradientLegend');
         this.width > this.minWidth && (this.isGradientLegendVisible = !0, document.body.classList.add("isGradientLegendVisible"))
     }
     hideGradientLegend() {

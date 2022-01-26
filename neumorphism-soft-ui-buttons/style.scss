@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css?family=Material+Icons+Round");
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --gap: 16px;
+    --transition: all 0.2s ease-in-out;
+    --bgGradient: linear-gradient( 318.32deg, #c3d1e4 0%, #dde7f3 55%, #d4e0ed 100%);
+    --btnSize: 62px;
+    --btnBorderRadius: 18px;
+    --borderGap: 2px;
+    --btnOuterShadow: 4px 2px 16px rgba(136, 165, 191, 0.48), -4px -2px 16px #ffffff;
+    --btnCheckedInsetShadow: inset 3px 3px 7px rgba(136, 165, 191, 0.48), inset -3px -3px 7px #ffffff;
+    --btnContentBorderRadius: calc(var(--btnBorderRadius) - var(--borderGap));
+    --iconColor: rgba(201, 215, 230, 0.8);
+    --iconSize: calc((var(--btnSize) / 2));
+    --iconShadow: 2px 2px 2px rgba(214, 225, 239, 0.6), 0 0 0 #000, 2px 2px 2px rgba(214, 225, 239, 0);
+    --btnCheckedIconShadow: 1px 1px 1px rgba(214, 225, 239, 0.6), 0 0 0 #000, 1px 1px 1px rgba(214, 225, 239, 0);
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: var(--bgGradient);
+    display: grid;
+    place-items: center;
+}
+
+.btns-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    padding: var(--gap);
+    gap: var(--gap);
+    transform: scale(2);
+}
+
+.visually-hidden {
+    border-width: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    width: 1px !important;
+}
+
+.btn {
+    outline: none;
+    border: none;
+    background: none;
+    width: var(--btnSize);
+    height: var(--btnSize);
+    position: relative;
+    border-radius: var(--btnBorderRadius);
+    padding: var(--borderGap);
+    box-shadow: var(--btnOuterShadow);
+    -webkit-tap-highlight-color: transparent;
+    .content-wrapper {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        border-radius: var(--btnContentBorderRadius);
+        transition: var(--transition);
+        display: grid;
+        place-items: center;
+        i {
+            user-select: none;
+            transition: var(--transition);
+            font-size: var(--iconSize);
+            position: relative;
+            pointer-events: none;
+            color: var(--iconColor);
+            text-shadow: var(--iconShadow);
+        }
+    }
+}
+
+input[type="radio"]:checked+label {
+    box-shadow: var(--btnCheckedInsetShadow);
+    i {
+        text-shadow: var(--btnCheckedIconShadow);
+    }
+}

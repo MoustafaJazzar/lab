@@ -2,31 +2,34 @@ name: Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-      
-    - name: Build Landing Page
-      run: npm install && npm run build
+      - uses: actions/checkout@v2
 
-    - name: Build Toast
-      run: cd toast && npm install && npm run build
+      - name: Build Landing Page
+        run: npm install && npm run build
 
-    - name: Build Material Cards
-      run: cd material-cards && npm install && npm run build
-      
-    - name: Build Canvas
-      run: cd canvas && npm install && npm run build
+      - name: Build Toast
+        run: cd toast && npm install && npm run build
 
-    - name: Deploy to Firebase
-      uses: w9jds/firebase-action@master
-      with:
-        args: deploy --only hosting
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        projectId: fir-git-dep
+      - name: Build Material Cards
+        run: cd material-cards && npm install && npm run build
+
+      - name: Build Canvas
+        run: cd canvas && npm install && npm run build
+
+      - name: Build Neumorphism Soft UI Buttons
+        run: cd neumorphism-soft-ui-buttons && npm install && npm run build
+
+      - name: Deploy to Firebase
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          projectId: fir-git-dep
