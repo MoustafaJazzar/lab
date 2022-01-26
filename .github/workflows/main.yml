@@ -12,19 +12,19 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Build Landing Page
-        run: npm install && npm run build
+        run: npm update && npm run build
 
       - name: Build Toast
-        run: cd toast && npm install && npm run build
+        run: cd toast && npm update && npm run build
 
       - name: Build Material Cards
-        run: cd material-cards && npm install && npm run build
+        run: cd material-cards && npm update && npm run build
 
       - name: Build Canvas
-        run: cd canvas && npm install && npm run build
+        run: cd canvas && npm update && npm run build
 
       - name: Build Neumorphism Soft UI Buttons
-        run: cd neumorphism-soft-ui-buttons && npm install && npm run build
+        run: cd neumorphism-soft-ui-buttons && npm update && npm run build
 
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
