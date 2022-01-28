@@ -5,10 +5,6 @@ import projects from './projects.json';
 let container = document.querySelector('.main');
 let year = document.querySelector('.year');
 
-let getData = async(file) => {
-    const _projects = await fetch(file)
-    projects = await _projects.json()
-}
 
 let formatDateBage = ({ date }) => {
     let node = document.createElement('time');
