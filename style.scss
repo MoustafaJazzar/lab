@@ -1,4 +1,5 @@
 :root {
+    --gap: 8px;
     --primaryColor: #1976d2;
     --primaryColorAlt: #0453a3;
     --textColor: #1a1f36;
@@ -27,8 +28,24 @@ main {
     width: 100%;
 }
 
-h1 {
+.header {
+    display: flex;
+    align-items: center;
+    margin: calc(var(--gap) * 2) 0;
+    height: 40px;
+    gap: 0 var(--gap);
     padding: 0 16px;
+}
+
+.logo {
+    width: 32px;
+    display: flex;
+}
+
+.separator {
+    width: 1px;
+    height: 70%;
+    background: var(--textColor);
 }
 
 .card {
