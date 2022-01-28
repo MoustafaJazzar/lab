@@ -42,7 +42,7 @@ function npm_install_recursive(folder) {
 
 // Performs `npm install`
 function npm_install(where) {
-    // child_process.execSync('npm update', { cwd: where, env: process.env, stdio: 'inherit' })
+    child_process.execSync('npm update', { cwd: where, env: process.env, stdio: 'inherit' })
     child_process.execSync('npm install', { cwd: where, env: process.env, stdio: 'inherit' })
 }
 
