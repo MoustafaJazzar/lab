@@ -4,6 +4,7 @@
     "scripts": {
         "start": "vite",
         "dev": "vite",
+        "prebuild": "node update.js",
         "build": "vite build --base=./",
         "serve": "vite preview"
     },
