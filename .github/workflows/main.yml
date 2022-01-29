@@ -29,6 +29,9 @@ jobs:
       - name: Build Waves
         run: cd waves && npm install && npm run build
 
+      - name: Build Accordion
+        run: cd accordion && npm accordion && npm run build
+
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
