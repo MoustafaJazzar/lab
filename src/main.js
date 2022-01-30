@@ -1,5 +1,5 @@
 import './style.scss'
-import projects from '.projects/projects.json';
+import projects from '../projects/projects.json';
 
 
 let BASE_URL = 'https://lab.moustafajazzar.com/';
