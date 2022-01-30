@@ -1,31 +1,25 @@
 [{
         "date": "23 nov 2021",
-        "name": "toast.",
-        "link": "https://lab.moustafajazzar.com/toast/dist/"
+        "name": "Toast"
     },
     {
         "date": "17 jan 2022",
-        "name": "material cards.",
-        "link": "https://lab.moustafajazzar.com/material-cards/dist/"
+        "name": "material Cards"
     },
     {
         "date": "18 jan 2022",
-        "name": "canvas.",
-        "link": "https://lab.moustafajazzar.com/canvas/dist/"
+        "name": "Canvas"
     },
     {
         "date": "26 jan 2022",
-        "name": "Neumorphism Soft UI Buttons.",
-        "link": "https://lab.moustafajazzar.com/neumorphism-soft-ui-buttons/dist/"
+        "name": "Neumorphism Soft UI Buttons"
     },
     {
         "date": "28 jan 2022",
-        "name": "Waves.",
-        "link": "https://lab.moustafajazzar.com/waves/dist/"
+        "name": "Waves"
     },
     {
         "date": "29 jan 2022",
-        "name": "Accordion.",
-        "link": "https://lab.moustafajazzar.com/accordion/dist/"
+        "name": "Accordion"
     }
 ]

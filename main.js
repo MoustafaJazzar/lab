@@ -2,6 +2,7 @@ import './style.scss'
 import projects from './projects.json';
 
 
+let BASE_URL = 'https://lab.moustafajazzar.com/';
 let container = document.querySelector('.main');
 let year = document.querySelector('.year');
 
@@ -15,10 +16,15 @@ let formatDateBage = ({ date }) => {
     return node;
 }
 
-let fotmatLink = ({ link, name }) => {
+let formateSlug = (str) => {
+    return str.toLowerCase().replace(/ /g, '-');
+}
+
+let fotmatLink = ({ name }) => {
     let node = document.createElement('a');
+    let slug = formateSlug(name);
     node.className = 'link';
-    node.href = link
+    node.href = `${BASE_URL}${slug}`;
     node.innerText = name;
     return node;
 }
