@@ -15,22 +15,22 @@ jobs:
         run: npm install && npm run build
 
       - name: Build Toast
-        run: cd toast && npm install && npm run build
+        run: cd projects/toast && npm install && npm run build
 
       - name: Build Material Cards
-        run: cd material-cards && npm install && npm run build
+        run: cd projects/material-cards && npm install && npm run build
 
       - name: Build Canvas
-        run: cd canvas && npm install && npm run build
+        run: cd projects/canvas && npm install && npm run build
 
       - name: Build Neumorphism Soft UI Buttons
-        run: cd neumorphism-soft-ui-buttons && npm install && npm run build
+        run: cd projects/neumorphism-soft-ui-buttons && npm install && npm run build
 
       - name: Build Waves
-        run: cd waves && npm install && npm run build
+        run: cd projects/waves && npm install && npm run build
 
       - name: Build Accordion
-        run: cd accordion && npm install && npm run build
+        run: cd projects/accordion && npm install && npm run build
 
       - name: Prepare Files for Firebase Deploy
         run: node prepareFirebaseHosting.js

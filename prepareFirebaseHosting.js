@@ -1,9 +1,9 @@
 const fse = require('fs-extra');
-const directories = require('./projects.json');
+const directories = require('./projects/projects.json');
 
 let formateSourceDirectoryName = (str) => {
     const dir = str.toLowerCase().replace(/ /g, '-');
-    return `./${dir}/dist`;
+    return `./projects/${dir}/dist`;
 }
 
 let formateDestinationDirectoryName = (str) => {
