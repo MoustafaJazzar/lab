@@ -22,3 +22,14 @@ directories.forEach(({ name }) => {
         }
     });
 })
+
+let mainSourceDirectory = './dist';
+let mainDestinationDirectory = './public';
+
+fse.copySync(mainSourceDirectory, mainDestinationDirectory, { overwrite: true }, (err) => {
+    if (err) {
+        console.error(err);
+    } else {
+        console.log(`files copied to ${mainDestinationDirectory}`);
+    }
+});
