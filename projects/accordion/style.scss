@@ -4,8 +4,8 @@
     --text-color: #171717;
     --text-color-2: #a3a3a3;
     --primary-color: #6366f1;
-    --elevation-z1: drop-shadow(0 4px 3px rgb(0 0 0/0.07)) drop-shadow(0 2px 2px rgb(0 0 0/0.06));
-    --elevation-z2: drop-shadow(0 10px 8px rgb(0 0 0/0.04)) drop-shadow(0 4px 3px rgb(0 0 0/0.1));
+    --elevation-z2: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    --elevation-z4: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     --hover: #e2e8f0;
     --thumb: #334155;
     --min-width: 400px;
@@ -63,7 +63,7 @@ main {
 }
 
 .expansion-panel {
-    filter: var(--elevation-z1);
+    box-shadow: var(--elevation-z2);
     width: 100%;
     position: relative;
     background: var(--foreground);
@@ -150,7 +150,7 @@ main {
 }
 
 .expansion-panel.active {
-    filter: var(--elevation-z2);
+    box-shadow: var(--elevation-z4);
     margin: 16px 0;
     border-radius: 4px;
     .expansion-panel-indicator {

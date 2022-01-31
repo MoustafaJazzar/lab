@@ -5,6 +5,7 @@
     --textColor: #1a1f36;
     --footerColor: #fafafa;
     --gradient: linear-gradient( 135deg, var(--primaryColor), var(--primaryColorAlt));
+    --hover: #e2e8f0;
 }
 
 html {
@@ -35,6 +36,9 @@ main {
     height: 40px;
     gap: 0 var(--gap);
     padding: 0 16px;
+    margin: 24px auto 0;
+    max-width: 900px;
+    width: 100%;
 }
 
 .logo {
@@ -48,11 +52,29 @@ main {
     background: var(--textColor);
 }
 
-.card {
+.link {
     display: flex;
     padding: 16px;
     align-items: center;
     gap: 16px;
+    height: 40px;
+    position: relative;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 1.5;
+    text-transform: capitalize;
+    color: inherit;
+    transition: all 0.1s ease-in-out;
+    &:hover,
+    &:focus {
+        background: var(--hover);
+        outline: none;
+        .icon {
+            opacity: 1;
+        }
+    }
 }
 
 .badge {
@@ -65,13 +87,12 @@ main {
     color: white
 }
 
-.link {
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: 400;
-    line-height: 1.5;
-    text-transform: capitalize;
-    color: inherit;
+.icon {
+    width: 18px;
+    height: 18px;
+    margin-left: auto;
+    opacity: 0;
+    transition: opacity .15s ease-in-out;
 }
 
 .footer {

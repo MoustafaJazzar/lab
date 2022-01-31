@@ -1,7 +1,8 @@
 import './style.scss'
 import projects from '../projects/projects.json';
+import linkIcon from './icons/link.svg'
 
-
+console.log(linkIcon);
 let BASE_URL = 'https://lab.moustafajazzar.com/';
 let container = document.querySelector('.main');
 let year = document.querySelector('.year');
@@ -20,12 +21,25 @@ let formateSlug = (str) => {
     return str.toLowerCase().replace(/ /g, '-');
 }
 
-let fotmatLink = ({ name }) => {
+let formateLinkIcon = () => {
+    let node = document.createElement('img');
+    node.src = linkIcon;
+    node.className = 'icon';
+    return node;
+}
+
+let fotmatLink = ({ name, date }) => {
     let node = document.createElement('a');
+    let text = document.createElement('span');
     let slug = formateSlug(name);
+    let badge = formatDateBage({ date });
+    let icon = formateLinkIcon()
     node.className = 'link';
     node.href = `${BASE_URL}${slug}`;
-    node.innerText = name;
+    text.innerText = name;
+    node.appendChild(badge);
+    node.appendChild(text);
+    node.appendChild(icon);
     return node;
 }
 
@@ -38,14 +52,14 @@ let formatCard = () => {
 let init = async() => {
     year.innerText = new Date().getFullYear()
     projects.map(project => {
-        let badge = formatDateBage(project)
+        // let badge = formatDateBage(project)
         let link = fotmatLink(project);
-        let card = formatCard()
+        // let card = formatCard()
 
-        card.appendChild(badge)
-        card.appendChild(link)
+        // card.appendChild(badge)
+        // card.appendChild(link)
 
-        container.appendChild(card)
+        container.appendChild(link)
     })
 }
 
