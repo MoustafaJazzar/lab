@@ -1,64 +1,63 @@
 import './style.scss'
 import projects from '../projects/projects.json';
-import linkIcon from './icons/link.svg'
+import linkIcon from './images/link.svg?raw'
 
-console.log(linkIcon);
-let BASE_URL = 'https://lab.moustafajazzar.com/';
-let container = document.querySelector('.main');
-let year = document.querySelector('.year');
+const BASE_URL = 'https://lab.moustafajazzar.com/';
+const container = document.querySelector('.main');
+const year = document.querySelector('.year');
 
 
-let formatDateBage = ({ date }) => {
-    let node = document.createElement('time');
+const createDateBage = ({ date }) => {
+    const node = document.createElement('time');
+    const text = document.createElement('span');
     const _date = new Date(date).toISOString();
+
     node.setAttribute('datetime', _date);
     node.className = 'badge';
-    node.innerText = date;
+
+    text.innerText = date;
+    node.appendChild(text);
+
     return node;
 }
 
-let formateSlug = (str) => {
-    return str.toLowerCase().replace(/ /g, '-');
-}
+const formateSlug = (str) => {
+    return str.toLowerCase().replace(/ /g, '-')
+};
 
-let formateLinkIcon = () => {
-    let node = document.createElement('img');
-    node.src = linkIcon;
+
+const createLinkIcon = () => {
+    const node = document.createElement('span');
+    node.innerHTML = linkIcon;
     node.className = 'icon';
+
     return node;
 }
 
-let fotmatLink = ({ name, date }) => {
-    let node = document.createElement('a');
-    let text = document.createElement('span');
-    let slug = formateSlug(name);
-    let badge = formatDateBage({ date });
-    let icon = formateLinkIcon()
+const createLink = ({ name, date }) => {
+    const node = document.createElement('a');
+    const text = document.createElement('span');
+
+    const slug = formateSlug(name);
+    const badge = createDateBage({ date });
+    const icon = createLinkIcon()
+
     node.className = 'link';
-    node.href = `${BASE_URL}${slug}`;
+    node.href = `${BASE_URL}${slug}/`;
     text.innerText = name;
+
     node.appendChild(badge);
     node.appendChild(text);
     node.appendChild(icon);
+
     return node;
 }
 
-let formatCard = () => {
-    let node = document.createElement('div');
-    node.className = 'card';
-    return node;
-}
-
-let init = async() => {
+const init = async() => {
     year.innerText = new Date().getFullYear()
+
     projects.map(project => {
-        // let badge = formatDateBage(project)
-        let link = fotmatLink(project);
-        // let card = formatCard()
-
-        // card.appendChild(badge)
-        // card.appendChild(link)
-
+        const link = createLink(project);
         container.appendChild(link)
     })
 }

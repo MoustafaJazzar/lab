@@ -5,7 +5,7 @@
         "trailingSlash": true,
         "rewrites": [{
             "source": "**",
-            "destination": "/stories/dist/"
+            "destination": "/index.html"
         }],
         "ignore": [
             "firebase.json",

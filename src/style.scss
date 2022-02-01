@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --gap: 8px;
     --primaryColor: #1976d2;
@@ -5,17 +9,19 @@
     --textColor: #1a1f36;
     --footerColor: #fafafa;
     --gradient: linear-gradient( 135deg, var(--primaryColor), var(--primaryColorAlt));
-    --hover: #e2e8f0;
+    --elevation-z4: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 
 html {
     block-size: 100%;
     inline-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
 }
 
 body {
-    min-block-size: 100%;
-    min-inline-size: 100%;
+    width: 100%;
+    min-height: 100vh;
     box-sizing: border-box;
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -23,10 +29,24 @@ body {
     color: var(--textColor);
 }
 
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    opacity: .5;
+    background: url(./images/bg.png) no-repeat top center;
+}
+
 main {
     margin: 24px auto;
     max-width: 900px;
     width: 100%;
+    padding: 0 calc(var(--gap) * 2);
+    gap: var(--gap);
+    display: grid;
 }
 
 .header {
@@ -53,23 +73,26 @@ main {
 }
 
 .link {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto 1fr auto;
     padding: 16px;
     align-items: center;
     gap: 16px;
-    height: 40px;
     position: relative;
     border-radius: 4px;
     cursor: pointer;
     text-decoration: none;
     font-weight: 400;
     line-height: 1.5;
+    font-size: 18px;
     text-transform: capitalize;
     color: inherit;
     transition: all 0.1s ease-in-out;
+    border: 1px solid transparent;
     &:hover,
     &:focus {
-        background: var(--hover);
+        border: 1px solid var(--primaryColor);
         outline: none;
         .icon {
             opacity: 1;
@@ -78,13 +101,28 @@ main {
 }
 
 .badge {
-    border-radius: 50px;
-    padding: 6px 12px;
     text-transform: capitalize;
     font-size: .75rem;
-    line-height: 1.5;
     background: var(--gradient);
-    color: white
+    color: white;
+    font-size: 0.8125rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    border-radius: 16px;
+    white-space: nowrap;
+    vertical-align: middle;
+    box-sizing: border-box;
+    box-shadow: var(--elevation-z4);
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 12px;
+        padding-right: 12px;
+        white-space: nowrap;
+        line-height: 32px;
+    }
 }
 
 .icon {
@@ -92,7 +130,8 @@ main {
     height: 18px;
     margin-left: auto;
     opacity: 0;
-    transition: opacity .15s ease-in-out;
+    transition: opacity .1s ease-in-out;
+    color: var(--primaryColor);
 }
 
 .footer {
