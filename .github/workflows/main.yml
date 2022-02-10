@@ -32,6 +32,9 @@ jobs:
       - name: Build Accordion
         run: cd projects/accordion && npm install && npm run build
 
+      - name: Build Password Generator
+        run: cd projects/secure-password-generator && npm install && npm run build
+
       - name: Prepare Files for Firebase Deploy
         run: node prepareFirebaseHosting.js
 

@@ -1,0 +1,40 @@
+.app-header {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    flex-direction: row !important;
+    background: linear-gradient( to right bottom, rgb(0, 127, 255), rgb(0, 89, 178) 120%);
+    color: #fff;
+}
+
+.app-password {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.4375em;
+    letter-spacing: 0.00938em;
+    font-family: monospace;
+    color: currentcolor;
+    padding: 4px 0px 5px;
+    border: 0px;
+    box-sizing: content-box;
+    background: none;
+    height: 1.4375em;
+    margin: 0px;
+    -webkit-tap-highlight-color: transparent;
+    display: block;
+    min-width: 0px;
+    width: 100%;
+    &:focus {
+        outline: none;
+    }
+}
+
+.divider {
+    flex-shrink: 0;
+    border-width: 0px thin 0px 0px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.12);
+    height: 28px;
+    margin: 4px;
+    background-color: rgb(255, 255, 255);
+}

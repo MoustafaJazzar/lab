@@ -21,5 +21,9 @@
     {
         "date": "29 jan 2022",
         "name": "Accordion"
+    },
+    {
+        "date": "10 feb 2022",
+        "name": "Secure Password Generator"
     }
 ]

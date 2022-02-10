@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Secure Password Generator | Jazzar Lab.</title>
+</head>
+
+<body>
+    <main class="container">
+        <div class="app-content">
+            <h1 class="app-title">Secure Password Generator </h1>
+            <div class="mdc-card app-header elevation-3">
+                <input aria-invalid="true" readonly="" type="text" class="app-password" value="">
+                <div class="mdc-touch-target-wrapper">
+                    <button class="mdc-icon-button mdc-icon-button--touch material-icons app-copy">
+                      <div class="mdc-icon-button__ripple"></div>
+                      <svg class="Mmdc-icon-button__icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ContentCopyIcon"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path></svg>
+                      <div class="mdc-icon-button__touch"></div>
+                    </button>
+                </div>
+                <hr class="divider">
+                <div class="mdc-touch-target-wrapper">
+                    <button class="mdc-icon-button mdc-icon-button--touch material-icons app-regenerate">
+                      <div class="mdc-icon-button__ripple"></div>
+                      <svg class="Mmdc-icon-button__icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ContentCopyIcon">
+                        <path d="m19 8-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"></path>     
+                    </svg>
+                      <div class="mdc-icon-button__touch"></div>
+                    </button>
+                </div>
+            </div>
+            <div class="mdc-card app-customization elevation-3">
+                <div class="password-slider-content">
+                    <h4 class="password-length-title app-subtitle ">
+                        Password Length
+                    </h4>
+                    <div class="app-password-length-slider">
+                        <div class="mdc-slider">
+                            <input class="mdc-slider__input" type="range" min="5" max="64" value="50" name="volume" aria-label="Continuous slider ">
+                            <div class="mdc-slider__track">
+                                <div class="mdc-slider__track--inactive"></div>
+                                <div class="mdc-slider__track--active">
+                                    <div class="mdc-slider__track--active_fill"></div>
+                                </div>
+                            </div>
+                            <div class="mdc-slider__thumb">
+                                <div class="mdc-slider__thumb-knob"></div>
+                            </div>
+                        </div>
+                        <div class="app-password-length-value">33</div>
+                    </div>
+                </div>
+                <div class="password-settings-content">
+                    <h4 class="password-settings-title app-subtitle ">
+                        Settings
+                    </h4>
+                    <div class="app-password-settings">
+                        <div class="settings-item">
+                            <div class="item-icon">
+                                <svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M20.06,18C20,17.83 19.91,17.54 19.86,17.11C19.19,17.81 18.38,18.16 17.45,18.16C16.62,18.16 15.93,17.92 15.4,17.45C14.87,17 14.6,16.39 14.6,15.66C14.6,14.78 14.93,14.1 15.6,13.61C16.27,13.12 17.21,12.88 18.43,12.88H19.83V12.24C19.83,11.75 19.68,11.36 19.38,11.07C19.08,10.78 18.63,10.64 18.05,10.64C17.53,10.64 17.1,10.76 16.75,11C16.4,11.25 16.23,11.54 16.23,11.89H14.77C14.77,11.46 14.92,11.05 15.22,10.65C15.5,10.25 15.93,9.94 16.44,9.71C16.95,9.5 17.5,9.36 18.13,9.36C19.11,9.36 19.87,9.6 20.42,10.09C20.97,10.58 21.26,11.25 21.28,12.11V16C21.28,16.8 21.38,17.42 21.58,17.88V18H20.06M17.66,16.88C18.11,16.88 18.54,16.77 18.95,16.56C19.35,16.35 19.65,16.07 19.83,15.73V14.16H18.7C16.93,14.16 16.04,14.63 16.04,15.57C16.04,16 16.19,16.3 16.5,16.53C16.8,16.76 17.18,16.88 17.66,16.88M5.46,13.71H9.53L7.5,8.29L5.46,13.71M6.64,6H8.36L13.07,18H11.14L10.17,15.43H4.82L3.86,18H1.93L6.64,6M2,20H13V22H2V20Z"></path></svg>
+                            </div>
+                            <div class="item-text">Uppercase</div>
+                            <div class="item-control">
+                                <button class="mdc-switch mdc-switch--selected modified-switch-size " type="button" role="switch" aria-checked="true" data-name="uppercase">
+                                    <div class="mdc-switch__track"></div>
+                                    <div class="mdc-switch__handle-track">
+                                      <div class="mdc-switch__handle">
+                                        <div class="mdc-switch__shadow">
+                                          <div class="mdc-elevation-overlay"></div>
+                                        </div>
+                                        <div class="mdc-switch__ripple"></div>
+                                      </div>
+                                    </div>
+                                  </button>
+                            </div>
+                        </div>
+                        <div class="settings-item">
+                            <div class="item-icon">
+                                <svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M20.06,18C20,17.83 19.91,17.54 19.86,17.11C19.19,17.81 18.38,18.16 17.45,18.16C16.62,18.16 15.93,17.92 15.4,17.45C14.87,17 14.6,16.39 14.6,15.66C14.6,14.78 14.93,14.1 15.6,13.61C16.27,13.12 17.21,12.88 18.43,12.88H19.83V12.24C19.83,11.75 19.68,11.36 19.38,11.07C19.08,10.78 18.63,10.64 18.05,10.64C17.53,10.64 17.1,10.76 16.75,11C16.4,11.25 16.23,11.54 16.23,11.89H14.77C14.77,11.46 14.92,11.05 15.22,10.65C15.5,10.25 15.93,9.94 16.44,9.71C16.95,9.5 17.5,9.36 18.13,9.36C19.11,9.36 19.87,9.6 20.42,10.09C20.97,10.58 21.26,11.25 21.28,12.11V16C21.28,16.8 21.38,17.42 21.58,17.88V18H20.06M17.66,16.88C18.11,16.88 18.54,16.77 18.95,16.56C19.35,16.35 19.65,16.07 19.83,15.73V14.16H18.7C16.93,14.16 16.04,14.63 16.04,15.57C16.04,16 16.19,16.3 16.5,16.53C16.8,16.76 17.18,16.88 17.66,16.88M5.46,13.71H9.53L7.5,8.29L5.46,13.71M6.64,6H8.36L13.07,18H11.14L10.17,15.43H4.82L3.86,18H1.93L6.64,6M22,20V22H14.5V20H22Z"></path></svg>
+                            </div>
+                            <div class="item-text">Lowercase</div>
+                            <div class="item-control">
+                                <button class="mdc-switch mdc-switch--selected modified-switch-size " type="button" role="switch" aria-checked="true" data-name="lowercase">
+                                    <div class="mdc-switch__track"></div>
+                                    <div class="mdc-switch__handle-track">
+                                      <div class="mdc-switch__handle">
+                                        <div class="mdc-switch__shadow">
+                                          <div class="mdc-elevation-overlay"></div>
+                                        </div>
+                                        <div class="mdc-switch__ripple"></div>
+                                      </div>
+                                    </div>
+                                  </button>
+                            </div>
+                        </div>
+                        <div class="settings-item">
+                            <div class="item-icon">
+                                <svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="NumbersIcon"><path d="m20.5 10 .5-2h-4l1-4h-2l-1 4h-4l1-4h-2L9 8H5l-.5 2h4l-1 4h-4L3 16h4l-1 4h2l1-4h4l-1 4h2l1-4h4l.5-2h-4l1-4h4zm-7 4h-4l1-4h4l-1 4z"></path></svg>
+                            </div>
+                            <div class="item-text">Numbers</div>
+                            <div class="item-control">
+                                <button class="mdc-switch mdc-switch--selected modified-switch-size " type="button" role="switch" aria-checked="true" data-name="numbers">
+                                    <div class="mdc-switch__track"></div>
+                                    <div class="mdc-switch__handle-track">
+                                      <div class="mdc-switch__handle">
+                                        <div class="mdc-switch__shadow">
+                                          <div class="mdc-elevation-overlay"></div>
+                                        </div>
+                                        <div class="mdc-switch__ripple"></div>
+                                      </div>
+                                    </div>
+                                  </button>
+                            </div>
+                        </div>
+                        <div class="settings-item">
+                            <div class="item-icon">
+                                <svg class="svg-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="EmojiSymbolsIcon"><path d="M3 2h8v2H3zm3 9h2V7h3V5H3v2h3zm6.4036 9.1819 7.7782-7.7782 1.4142 1.4142-7.7782 7.7782z"></path><circle cx="14.5" cy="14.5" r="1.5"></circle><circle cx="19.5" cy="19.5" r="1.5"></circle><path d="M15.5 11c1.38 0 2.5-1.12 2.5-2.5V4h3V2h-4v4.51c-.42-.32-.93-.51-1.5-.51C14.12 6 13 7.12 13 8.5s1.12 2.5 2.5 2.5zm-5.76 4.96-1.41 1.41-.71-.71.35-.35c.98-.98.98-2.56 0-3.54-.49-.49-1.13-.73-1.77-.73-.64 0-1.28.24-1.77.73-.98.98-.98 2.56 0 3.54l.35.35-1.06 1.06c-.98.98-.98 2.56 0 3.54.5.5 1.14.74 1.78.74s1.28-.24 1.77-.73l1.06-1.06 1.41 1.41 1.41-1.41-1.41-1.41 1.41-1.41-1.41-1.43zM5.85 14.2c.12-.12.26-.15.35-.15s.23.03.35.15c.19.2.19.51 0 .71l-.35.35-.35-.36c-.19-.19-.19-.51 0-.7zm0 5.65c-.12.12-.26.15-.35.15s-.23-.03-.35-.15c-.19-.19-.19-.51 0-.71l1.06-1.06.71.71-1.07 1.06z"></path></svg>
+                            </div>
+                            <div class="item-text">Symbols</div>
+                            <div class="item-control">
+                                <button class="mdc-switch mdc-switch--selected modified-switch-size " type="button" role="switch" aria-checked="true" data-name="symbols">
+                                    <div class="mdc-switch__track"></div>
+                                    <div class="mdc-switch__handle-track">
+                                      <div class="mdc-switch__handle">
+                                        <div class="mdc-switch__shadow">
+                                          <div class="mdc-elevation-overlay"></div>
+                                        </div>
+                                        <div class="mdc-switch__ripple"></div>
+                                      </div>
+                                    </div>
+                                  </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module" src="/main.js"></script>
+</body>
+
+</html>

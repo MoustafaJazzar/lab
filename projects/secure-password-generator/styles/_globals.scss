@@ -1,0 +1,47 @@
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+    text-size-adjust: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0px;
+    color: rgba(0, 0, 0, 0.87);
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+}
+
+.app-content {
+    padding: 48px 0;
+}
+
+.app-title {
+    margin: 0px 0px 16px;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 2.125rem;
+    line-height: 1.235;
+    letter-spacing: 0.00735em;
+    font-weight: 800;
+    text-align: left;
+}
+
+.app-subtitle {
+    line-height: 48px;
+    color: rgba(0, 0, 0, 0.6);
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin: 0;
+}
+
+.elevation-3 {
+    box-shadow: rgb(0 0 0 / 20%) 0px 3px 3px -2px, rgb(0 0 0 / 14%) 0px 3px 4px 0px, rgb(0 0 0 / 12%) 0px 1px 8px 0px !important;
+}

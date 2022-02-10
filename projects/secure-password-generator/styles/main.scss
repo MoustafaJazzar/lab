@@ -1,0 +1,14 @@
+@use "./globals.scss";
+@use "./container.scss";
+@use "./appHeader.scss";
+@use "./appCustomization.scss";
+@use "@material/theme" with ( $primary: rgb(25, 118, 210));
+@use "@material/icon-button/styles" as iconButtonStyles;
+@use "@material/card";
+@use "@material/slider/styles" as SliderStyles;
+@use "@material/switch";
+@use "@material/switch/styles";
+@include card.core-styles;
+.modified-switch-size {
+    @include switch.theme( ( state-layer-size: 38px, ));
+}
