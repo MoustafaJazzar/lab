@@ -35,6 +35,9 @@ jobs:
       - name: Build Password Generator
         run: cd projects/secure-password-generator && npm install && npm run build
 
+      - name: Build Auto hide Navigation Toolbar
+        run: cd projects/auto-hide-nav && npm install && npm run build
+
       - name: Prepare Files for Firebase Deploy
         run: node prepareFirebaseHosting.js
 
