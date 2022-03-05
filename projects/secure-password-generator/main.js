@@ -1,9 +1,7 @@
 import './styles/main.scss'
-import { MDCRipple } from '@material/ripple';
-import { MDCSlider } from '@material/slider';
-import { MDCSwitch } from '@material/switch';
 
-import { formatValue, copyTextToClipboard } from './scripts/utils.js';
+
+import { formatValue, copyTextToClipboard, rangeToPercent } from './scripts/utils.js';
 import generatePassword from './scripts/passwordGenerator.js';
 
 
@@ -17,12 +15,10 @@ let passwordSettings = {
 
 let password;
 
-const iconButtonRipple = new MDCRipple(document.querySelector('.mdc-icon-button'));
-iconButtonRipple.unbounded = true;
 
-const slider = new MDCSlider(document.querySelector('.mdc-slider'));
+const slider = document.querySelector('#password-length-slider')
 const sliderValue = document.querySelector('.app-password-length-value');
-slider.setValue(passwordSettings.length);
+slider.value = (passwordSettings.length);
 sliderValue.textContent = formatValue(passwordSettings.length);
 
 const appPassword = document.querySelector('.app-password');
@@ -34,24 +30,29 @@ const populatePassword = () => {
     appPassword.value = password;
 }
 
+slider.style.setProperty('--track-fill', rangeToPercent(slider))
 populatePassword();
 
-slider.listen('MDCSlider:input', (e) => {
+slider.addEventListener('input', e => {
     passwordSettings = {
         ...passwordSettings,
-        length: e.detail.value
+        length: e.target.value
     }
-    sliderValue.textContent = formatValue(passwordSettings.length);
 
-    populatePassword()
+    e.target.style.setProperty('--track-fill', rangeToPercent(e.target))
+    sliderValue.textContent = formatValue(passwordSettings.length);
+    populatePassword();
 })
 
-for (const el of document.querySelectorAll('.mdc-switch')) {
-    const _switch = new MDCSwitch(el)
-    _switch.root.addEventListener('click', (e) => {
+
+
+
+for (const el of document.querySelectorAll('.app-password-control-switch')) {
+
+    el.addEventListener('click', (e) => {
         passwordSettings = {
             ...passwordSettings,
-            [_switch.root.dataset.name]: _switch.selected
+            [e.target.name]: el.checked
         }
         populatePassword()
     })

@@ -1,0 +1,46 @@
+button {
+    box-sizing: border-box;
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    -webkit-tap-highlight-color: transparent;
+    display: inline-block;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;
+    min-width: 64px;
+    line-height: 36px;
+    padding: 0 16px;
+    border-radius: 4px;
+    color: inherit;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    transition: all 225ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid;
+    border-color: transparent;
+    &:hover,
+    &:focus {
+        background: rgba(255, 255, 255, 0.04);
+    }
+    .content-wrapper {
+        display: grid;
+        grid-auto-flow: column;
+        align-items: center;
+        gap: 8px;
+        .icon {
+            fill: currentColor;
+            width: 18px;
+            height: 18px;
+        }
+    }
+    color: inherit !important;
+    border-radius: 50%;
+    min-width: auto;
+    padding: 8px;
+}

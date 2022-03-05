@@ -28,11 +28,9 @@ class AutoHideNavigation {
       threshold: options.threshold || 10,
       animationSpeed: options.animationSpeed || 300,
     };
-    this._init();
-    this._attachEvents();
   }
 
-  private _init() {
+  init() {
     this.navHeight = this.options.elem.offsetHeight;
 
     /** Store the nav element for easier accessability. */
@@ -42,6 +40,8 @@ class AutoHideNavigation {
     if (window.scrollY > this.options.breakPoint) {
       this.elem.style.transform = `translateY(${this.navHeight * -1}px)`;
     }
+
+    this._attachEvents();
   }
   private _attachEvents() {
     window.addEventListener('scroll', this._onScroll.bind(this));
@@ -86,5 +86,4 @@ const options: Options = {
 }
 
 let navigation = new AutoHideNavigation(options);
-
-console.log(navigation);
+navigation.init();

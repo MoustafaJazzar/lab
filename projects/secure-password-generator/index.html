@@ -15,46 +15,34 @@
     <main class="container">
         <div class="app-content">
             <h1 class="app-title">Secure Password Generator </h1>
-            <div class="mdc-card app-header elevation-3">
+            <div class=" card app-header elevation-3">
                 <input aria-invalid="true" readonly="" type="text" class="app-password" value="">
-                <div class="mdc-touch-target-wrapper">
-                    <button class="mdc-icon-button mdc-icon-button--touch material-icons app-copy">
-                      <div class="mdc-icon-button__ripple"></div>
-                      <svg class="Mmdc-icon-button__icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ContentCopyIcon"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path></svg>
-                      <div class="mdc-icon-button__touch"></div>
-                    </button>
-                </div>
+                <button class="app-copy">
+                  <div class="content-wrapper">
+                    <svg class="icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ContentCopyIcon"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"></path></svg>
+                  </div>
+                </button>
+
                 <hr class="divider">
-                <div class="mdc-touch-target-wrapper">
-                    <button class="mdc-icon-button mdc-icon-button--touch material-icons app-regenerate">
-                      <div class="mdc-icon-button__ripple"></div>
-                      <svg class="Mmdc-icon-button__icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ContentCopyIcon">
-                        <path d="m19 8-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"></path>     
-                    </svg>
-                      <div class="mdc-icon-button__touch"></div>
-                    </button>
-                </div>
+                <button class=" app-regenerate">
+                  <div class="content-wrapper">
+                    <svg class="icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ContentCopyIcon">
+                      <path d="m19 8-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"></path>     
+                  </svg>
+                  </div>
+                </button>
             </div>
-            <div class="mdc-card app-customization elevation-3">
+            <div class="card app-customization elevation-3">
                 <div class="password-slider-content">
                     <h4 class="password-length-title app-subtitle ">
                         Password Length
                     </h4>
                     <div class="app-password-length-slider">
-                        <div class="mdc-slider">
-                            <input class="mdc-slider__input" type="range" min="5" max="64" value="50" name="volume" aria-label="Continuous slider ">
-                            <div class="mdc-slider__track">
-                                <div class="mdc-slider__track--inactive"></div>
-                                <div class="mdc-slider__track--active">
-                                    <div class="mdc-slider__track--active_fill"></div>
-                                </div>
-                            </div>
-                            <div class="mdc-slider__thumb">
-                                <div class="mdc-slider__thumb-knob"></div>
-                            </div>
-                        </div>
+                        <input id="password-length-slider" name="password-length-slider" aria-labelledby="password-length-slider" type="range" value="8" max="64" style="--track-fill:13%;">
+
                         <div class="app-password-length-value">33</div>
                     </div>
+
                 </div>
                 <div class="password-settings-content">
                     <h4 class="password-settings-title app-subtitle ">
@@ -67,17 +55,7 @@
                             </div>
                             <div class="item-text">Uppercase</div>
                             <div class="item-control">
-                                <button class="mdc-switch mdc-switch--selected modified-switch-size " type="button" role="switch" aria-checked="true" data-name="uppercase">
-                                    <div class="mdc-switch__track"></div>
-                                    <div class="mdc-switch__handle-track">
-                                      <div class="mdc-switch__handle">
-                                        <div class="mdc-switch__shadow">
-                                          <div class="mdc-elevation-overlay"></div>
-                                        </div>
-                                        <div class="mdc-switch__ripple"></div>
-                                      </div>
-                                    </div>
-                                  </button>
+                                <input class="app-password-control-switch" type="checkbox" checked="" id="uppercase" name="uppercase">
                             </div>
                         </div>
                         <div class="settings-item">
@@ -86,17 +64,7 @@
                             </div>
                             <div class="item-text">Lowercase</div>
                             <div class="item-control">
-                                <button class="mdc-switch mdc-switch--selected modified-switch-size " type="button" role="switch" aria-checked="true" data-name="lowercase">
-                                    <div class="mdc-switch__track"></div>
-                                    <div class="mdc-switch__handle-track">
-                                      <div class="mdc-switch__handle">
-                                        <div class="mdc-switch__shadow">
-                                          <div class="mdc-elevation-overlay"></div>
-                                        </div>
-                                        <div class="mdc-switch__ripple"></div>
-                                      </div>
-                                    </div>
-                                  </button>
+                                <input class="app-password-control-switch" type="checkbox" checked="" id="lowercase" name="lowercase">
                             </div>
                         </div>
                         <div class="settings-item">
@@ -105,17 +73,7 @@
                             </div>
                             <div class="item-text">Numbers</div>
                             <div class="item-control">
-                                <button class="mdc-switch mdc-switch--selected modified-switch-size " type="button" role="switch" aria-checked="true" data-name="numbers">
-                                    <div class="mdc-switch__track"></div>
-                                    <div class="mdc-switch__handle-track">
-                                      <div class="mdc-switch__handle">
-                                        <div class="mdc-switch__shadow">
-                                          <div class="mdc-elevation-overlay"></div>
-                                        </div>
-                                        <div class="mdc-switch__ripple"></div>
-                                      </div>
-                                    </div>
-                                  </button>
+                                <input class="app-password-control-switch" type="checkbox" checked="" id="numbers" name="numbers">
                             </div>
                         </div>
                         <div class="settings-item">
@@ -124,17 +82,7 @@
                             </div>
                             <div class="item-text">Symbols</div>
                             <div class="item-control">
-                                <button class="mdc-switch mdc-switch--selected modified-switch-size " type="button" role="switch" aria-checked="true" data-name="symbols">
-                                    <div class="mdc-switch__track"></div>
-                                    <div class="mdc-switch__handle-track">
-                                      <div class="mdc-switch__handle">
-                                        <div class="mdc-switch__shadow">
-                                          <div class="mdc-elevation-overlay"></div>
-                                        </div>
-                                        <div class="mdc-switch__ripple"></div>
-                                      </div>
-                                    </div>
-                                  </button>
+                                <input class="app-password-control-switch" type="checkbox" checked="" id="symbols" name="symbols">
                             </div>
                         </div>
                     </div>

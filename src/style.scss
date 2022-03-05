@@ -24,7 +24,7 @@ body {
     min-height: 100vh;
     box-sizing: border-box;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
     display: grid;
     color: var(--textColor);
 }
@@ -36,7 +36,7 @@ body {
     bottom: 0;
     right: 0;
     z-index: -1;
-    opacity: .5;
+    opacity: 0.5;
     background: url(./images/bg.png) no-repeat top center;
 }
 
@@ -72,10 +72,17 @@ main {
     background: var(--textColor);
 }
 
+.title {
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: 700;
+}
+
 .link {
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: auto 1fr auto;
+    grid-template-areas: "badge text icon";
     padding: 16px;
     align-items: center;
     gap: 16px;
@@ -102,7 +109,6 @@ main {
 
 .badge {
     text-transform: capitalize;
-    font-size: .75rem;
     background: var(--gradient);
     color: white;
     font-size: 0.8125rem;
@@ -115,6 +121,7 @@ main {
     vertical-align: middle;
     box-sizing: border-box;
     box-shadow: var(--elevation-z4);
+    grid-area: badge;
     span {
         overflow: hidden;
         text-overflow: ellipsis;
@@ -125,13 +132,18 @@ main {
     }
 }
 
+.link-text {
+    grid-area: text;
+}
+
 .icon {
     width: 18px;
     height: 18px;
     margin-left: auto;
     opacity: 0;
-    transition: opacity .1s ease-in-out;
+    transition: opacity 0.1s ease-in-out;
     color: var(--primaryColor);
+    grid-area: icon;
 }
 
 .footer {
@@ -146,4 +158,43 @@ main {
     font-size: 13px;
     color: #363636;
     font-weight: 300;
+}
+
+@media (min-width: 1012px) {
+    .title {
+        font-size: 48px;
+        line-height: 52px;
+        letter-spacing: -0.03em;
+    }
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 40px;
+        line-height: 44px;
+    }
+}
+
+@media (max-width: 400px) {
+    main {
+        gap: calc(var(--gap) * 2);
+    }
+    .link {
+        background: var(--gradient);
+        color: #fafafa;
+        gap: var(--gap);
+    }
+    .badge {
+        background: none;
+        box-shadow: none;
+        justify-content: left;
+        grid-area: 1/1/1/1;
+    }
+    .link-text {
+        padding: 0 12px;
+        grid-area: 2/2/2/1;
+    }
+    .icon {
+        display: none;
+    }
 }

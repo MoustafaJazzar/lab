@@ -37,6 +37,7 @@ const createLinkIcon = () => {
 const createLink = ({ name, date }) => {
     const node = document.createElement('a');
     const text = document.createElement('span');
+    text.className = "link-text"
 
     const slug = formateSlug(name);
     const badge = createDateBage({ date });
@@ -46,9 +47,7 @@ const createLink = ({ name, date }) => {
     node.href = `${BASE_URL}${slug}/`;
     text.innerText = name;
 
-    node.appendChild(badge);
-    node.appendChild(text);
-    node.appendChild(icon);
+    node.append(badge, text, icon)
 
     return node;
 }

@@ -2,6 +2,13 @@ function formatValue(value) {
     return value < 10 ? `0${value}` : value;
 }
 
+const rangeToPercent = slider => {
+    const max = slider.getAttribute('max')
+    const percent = slider.value / max * 100
+
+    return `${percent}%`
+}
+
 async function copyTextToClipboard(text) {
     if ("clipboard" in navigator) {
         return await navigator.clipboard.writeText(text);
@@ -12,4 +19,4 @@ async function copyTextToClipboard(text) {
 
 
 
-export { formatValue, copyTextToClipboard };
+export { formatValue, copyTextToClipboard, rangeToPercent };
