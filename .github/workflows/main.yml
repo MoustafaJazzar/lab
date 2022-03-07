@@ -38,6 +38,9 @@ jobs:
       - name: Build Auto hide Navigation Toolbar
         run: cd projects/auto-hide-navigation-toolbar && npm install && npm run build
 
+      - name: Build Patterns
+        run: cd projects/patterns && npm install && npm run build
+
       - name: Prepare Files for Firebase Deploy
         run: node prepareFirebaseHosting.js
 
