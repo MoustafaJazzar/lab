@@ -9,17 +9,12 @@ const ctx = setupCanvas(canvas)
 
 
 const init = () => {
-    let bgTiles = []
-    let fgTiles = []
-
-    let bgTileColor;
-    let fgTileColor;
-
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     for (let i = 0; i < tilePerRow; i++) {
         for (let j = 0; j < tilePerColumn; j++) {
-            bgTileColor = random(colors)
-            fgTileColor = random(colors.filter(color => color != bgTileColor))
+            const bgTileColor = random(colors)
+            const fgTileColor = random(colors.filter(color => color != bgTileColor))
 
             let tileXPos = i * tileSize;
             let tileYPos = j * tileSize;
@@ -27,15 +22,10 @@ const init = () => {
             let bgTile = new Tile(tileXPos, tileYPos, bgTileColor, false, ctx)
             let fgTile = new Tile(tileXPos, tileYPos, fgTileColor, true, ctx)
 
-            bgTiles.push(bgTile)
-            fgTiles.push(fgTile)
+            bgTile.draw()
+            fgTile.draw()
         }
     }
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-    for (const tile of bgTiles) tile.update()
-    for (const tile of fgTiles) tile.update()
 }
 
 init()

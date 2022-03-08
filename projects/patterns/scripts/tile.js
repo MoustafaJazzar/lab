@@ -27,12 +27,4 @@ export class Tile {
             this.ctx.closePath()
         }
     }
-
-    update() {
-        this.draw()
-    }
-
-    updateFg() {
-        this.fg = random(drawShape)
-    }
 }
