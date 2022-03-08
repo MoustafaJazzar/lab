@@ -1,171 +1,169 @@
-import { size } from './constants'
+import { tileSize } from './constants'
 
-let rectTop = (x, y, c) => {
-    c.rect(x, y, size, size / 2);
-}
-
-let dotTopLeft = (x, y, c) => {
-    let _x = x + (size / 5)
-    let _y = y + (size / 5)
-
-    c.arc(_x, _y, (size / 10), 0, Math.PI * 2, false);
+const rectTop = (x, y, ctx) => {
+    ctx.rect(x, y, tileSize, tileSize / 2);
 }
 
-let dotBottomRight = (x, y, c) => {
-    let _x = x + (size * .8)
-    let _y = y + (size * .8)
+const dotTopLeft = (x, y, ctx) => {
+    const _x = x + (tileSize / 5)
+    const _y = y + (tileSize / 5)
 
-    c.arc(_x, _y, (size / 10), 0, Math.PI * 2, false);
-}
-
-let dotTopRight = (x, y, c) => {
-    let _x = x + (size * .8)
-    let _y = y + (size / 5)
-
-    c.arc(_x, _y, (size / 10), 0, Math.PI * 2, false);
+    ctx.arc(_x, _y, (tileSize / 10), 0, Math.PI * 2, false);
 }
 
-let dotBottomLeft = (x, y, c) => {
-    let _x = x + (size / 5)
-    let _y = y + (size * .8)
+const dotBottomRight = (x, y, ctx) => {
+    const _x = x + (tileSize * .8)
+    const _y = y + (tileSize * .8)
 
-    c.arc(_x, _y, (size / 10), 0, Math.PI * 2, false);
-}
-
-let arcRight = (x, y, c) => {
-    let _x = x + (size)
-    let _y = y + (size / 2)
-
-    c.arc(_x, _y, (size / 2), 0.5 * Math.PI, 1.5 * Math.PI);
-}
-let arcLeft = (x, y, c) => {
-    let _x = x
-    let _y = y + (size / 2)
-
-    c.arc(_x, _y, (size / 2), 1.5 * Math.PI, .5 * Math.PI);
+    ctx.arc(_x, _y, (tileSize / 10), 0, Math.PI * 2, false);
 }
 
-let arcBottom = (x, y, c) => {
-    let _x = x + (size / 2)
-    let _y = y + (size)
+const dotTopRight = (x, y, ctx) => {
+    const _x = x + (tileSize * .8)
+    const _y = y + (tileSize / 5)
 
-    c.arc(_x, _y, (size / 2), Math.PI, 2 * Math.PI);
-}
-
-let arcTop = (x, y, c) => {
-    let _x = x + (size / 2)
-    let _y = y
-    c.arc(_x, _y, (size / 2), 2 * Math.PI, Math.PI);
+    ctx.arc(_x, _y, (tileSize / 10), 0, Math.PI * 2, false);
 }
 
-let rectLeft = (x, y, c) => {
-    c.rect(x, y, size / 2, size);
-}
-let rectRight = (x, y, c) => {
-    c.rect(x + (size / 2), y, size / 2, size);
-}
-let rectBottom = (x, y, c) => {
-    c.rect(x, y + (size / 2), size, size / 2);
-}
-let frame = (x, y, c) => {
-    let lineWidth = (size / 6)
-    let startPoint = lineWidth / 2;
-    c.lineWidth = lineWidth
-    c.strokeRect(x + startPoint, y + startPoint, size - lineWidth, size - lineWidth)
-}
-let triLeftBottom = (x, y, c) => {
-    c.moveTo(x, y);
-    c.lineTo(x + size, y + size);
-    c.lineTo(x, y + size);
-}
-let triRightTop = (x, y, c) => {
-    c.moveTo(x + size, y);
-    c.lineTo(x + size, y + size);
-    c.lineTo(x, y);
-}
-let triLeftTop = (x, y, c) => {
-    c.moveTo(x + size, y);
-    c.lineTo(x, y);
-    c.lineTo(x, y + size);
-}
-let triRightBottom = (x, y, c) => {
-    c.moveTo(x + size, y);
-    c.lineTo(x + size, y + size);
-    c.lineTo(x, y + size);
+const dotBottomLeft = (x, y, ctx) => {
+    const _x = x + (tileSize / 5)
+    const _y = y + (tileSize * .8)
+
+    ctx.arc(_x, _y, (tileSize / 10), 0, Math.PI * 2, false);
 }
 
-let triTop = (x, y, c) => {
-    c.moveTo(x + (size / 2), y);
-    c.lineTo(x + size, y + size);
-    c.lineTo(x, y + size);
+const arcRight = (x, y, ctx) => {
+    const _x = x + (tileSize)
+    const _y = y + (tileSize / 2)
+
+    ctx.arc(_x, _y, (tileSize / 2), 0.5 * Math.PI, 1.5 * Math.PI);
 }
-let triLeft = (x, y, c) => {
-    c.moveTo(x, y + (size / 2));
-    c.lineTo(x + size, y);
-    c.lineTo(x + size, y + size);
-}
-let triBottom = (x, y, c) => {
-    c.moveTo(x + (size / 2), y + (size));
-    c.lineTo(x + size, y);
-    c.lineTo(x, y);
-}
-let triRight = (x, y, c) => {
-    c.moveTo(x + (size), y + (size / 2));
-    c.lineTo(x, y);
-    c.lineTo(x, y + size);
+const arcLeft = (x, y, ctx) => {
+    const _x = x
+    const _y = y + (tileSize / 2)
+
+    ctx.arc(_x, _y, (tileSize / 2), 1.5 * Math.PI, .5 * Math.PI);
 }
 
-let circleTopLeft = (x, y, c) => {
-    c.moveTo(x, y);
-    c.arc(x, y, (size), 0, (Math.PI / 2), false);
-}
-let circleTopRight = (x, y, c) => {
-    c.moveTo(x + size, y);
-    c.arc(x + size, y, (size), Math.PI / 2, (Math.PI / 2) + (Math.PI / 2), false);
+const arcBottom = (x, y, ctx) => {
+    const _x = x + (tileSize / 2)
+    const _y = y + (tileSize)
+
+    ctx.arc(_x, _y, (tileSize / 2), Math.PI, 2 * Math.PI);
 }
 
-let circleBottomRight = (x, y, c) => {
-    c.moveTo(x + size, y + size);
-    c.arc(x + size, y + size, (size), (Math.PI / 2) * 2, ((Math.PI / 2) * 2) + (Math.PI / 2), false);
+const arcTop = (x, y, ctx) => {
+    const _x = x + (tileSize / 2)
+    const _y = y
+    ctx.arc(_x, _y, (tileSize / 2), 2 * Math.PI, Math.PI);
 }
 
-let circleBottomLeft = (x, y, c) => {
-    c.moveTo(x, y + size);
-    c.arc(x, y + size, (size), (Math.PI / 2) * 3, ((Math.PI / 2) * 3) + (Math.PI / 2), false);
+const rectLeft = (x, y, ctx) => {
+    ctx.rect(x, y, tileSize / 2, tileSize);
+}
+const rectRight = (x, y, ctx) => {
+    ctx.rect(x + (tileSize / 2), y, tileSize / 2, tileSize);
+}
+const rectBottom = (x, y, ctx) => {
+    ctx.rect(x, y + (tileSize / 2), tileSize, tileSize / 2);
+}
+const frame = (x, y, ctx) => {
+    const lineWidth = (tileSize / 6)
+    const startPoint = lineWidth / 2;
+    ctx.lineWidth = lineWidth
+    ctx.strokeRect(x + startPoint, y + startPoint, tileSize - lineWidth, tileSize - lineWidth)
+}
+const triBottomLeft = (x, y, ctx) => {
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + tileSize, y + tileSize);
+    ctx.lineTo(x, y + tileSize);
+}
+const triTopRight = (x, y, ctx) => {
+    ctx.moveTo(x + tileSize, y);
+    ctx.lineTo(x + tileSize, y + tileSize);
+    ctx.lineTo(x, y);
+}
+const triTopLeft = (x, y, ctx) => {
+    ctx.moveTo(x + tileSize, y);
+    ctx.lineTo(x, y);
+    ctx.lineTo(x, y + tileSize);
+}
+const triBottomRight = (x, y, ctx) => {
+    ctx.moveTo(x + tileSize, y);
+    ctx.lineTo(x + tileSize, y + tileSize);
+    ctx.lineTo(x, y + tileSize);
 }
 
-let circleFull = (x, y, c) => {
-    c.arc(x + (size / 2), y + (size / 2), (size / 2), 0, Math.PI * 2, false);
+const triTop = (x, y, ctx) => {
+    ctx.moveTo(x + (tileSize / 2), y);
+    ctx.lineTo(x + tileSize, y + tileSize);
+    ctx.lineTo(x, y + tileSize);
+}
+const triLeft = (x, y, ctx) => {
+    ctx.moveTo(x, y + (tileSize / 2));
+    ctx.lineTo(x + tileSize, y);
+    ctx.lineTo(x + tileSize, y + tileSize);
+}
+const triBottom = (x, y, ctx) => {
+    ctx.moveTo(x + (tileSize / 2), y + (tileSize));
+    ctx.lineTo(x + tileSize, y);
+    ctx.lineTo(x, y);
 }
 
-let drawShape = [
-    // triTop,
+const triRight = (x, y, ctx) => {
+    ctx.moveTo(x + (tileSize), y + (tileSize / 2));
+    ctx.lineTo(x, y);
+    ctx.lineTo(x, y + tileSize);
+}
+
+const circleTopLeft = (x, y, ctx) => {
+    ctx.moveTo(x, y);
+    ctx.arc(x, y, (tileSize), 0, (Math.PI / 2), false);
+}
+const circleTopRight = (x, y, ctx) => {
+    ctx.moveTo(x + tileSize, y);
+    ctx.arc(x + tileSize, y, (tileSize), Math.PI / 2, (Math.PI / 2) + (Math.PI / 2), false);
+}
+
+const circleBottomRight = (x, y, ctx) => {
+    ctx.moveTo(x + tileSize, y + tileSize);
+    ctx.arc(x + tileSize, y + tileSize, (tileSize), (Math.PI / 2) * 2, ((Math.PI / 2) * 2) + (Math.PI / 2), false);
+}
+
+const circleBottomLeft = (x, y, ctx) => {
+    ctx.moveTo(x, y + tileSize);
+    ctx.arc(x, y + tileSize, (tileSize), (Math.PI / 2) * 3, ((Math.PI / 2) * 3) + (Math.PI / 2), false);
+}
+
+const circleFull = (x, y, ctx) => {
+    ctx.arc(x + (tileSize / 2), y + (tileSize / 2), (tileSize / 2), 0, Math.PI * 2, false);
+}
+
+export const drawShape = [
     dotTopLeft,
+    dotTopRight,
+    dotBottomLeft,
+    dotBottomRight,
+    triTopLeft,
+    triTopRight,
+    triBottomLeft,
+    triBottomRight,
+    circleTopLeft,
+    circleTopRight,
+    circleBottomLeft,
+    circleBottomRight,
+    circleFull,
     arcTop,
     arcBottom,
-    dotBottomLeft,
-    arcLeft,
-    // triRight,
-    rectTop,
-    rectRight,
-    dotTopRight,
-    triRightTop,
-    rectLeft,
-    rectBottom,
-    frame,
-    // triBottom,
-    circleTopLeft,
     arcRight,
-    triLeftTop,
-    circleBottomRight,
-    triRightBottom,
-    circleBottomLeft,
+    arcLeft,
+    rectTop,
+    rectBottom,
+    rectRight,
+    rectLeft,
+    frame,
+    // triTop,
+    // triBottom,
+    // triRight,
     // triLeft,
-    dotBottomRight,
-    circleTopRight,
-    triLeftBottom,
-    circleFull
 ]
-
-
-export default drawShape

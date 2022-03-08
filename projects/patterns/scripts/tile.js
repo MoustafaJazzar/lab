@@ -1,20 +1,20 @@
 import { random } from './utils'
-import drawShape from './shapes'
-import { size } from './constants'
-class Tile {
-    constructor(x, y, c, d, ctx) {
-        this.x = x
-        this.y = y
-        this.d = d
-        this.color = c;
+import { drawShape } from './shapes'
+import { tileSize } from './constants'
+export class Tile {
+    constructor(xPos, yPos, tileColor, isFgTile, ctx) {
+        this.x = xPos
+        this.y = yPos
+        this.isFgTile = isFgTile
+        this.color = tileColor;
         this.ctx = ctx
         this.fg = random(drawShape)
     }
 
     draw() {
-        if (!this.d) {
+        if (!this.isFgTile) {
             this.ctx.beginPath()
-            this.ctx.rect(this.x, this.y, size, size);
+            this.ctx.rect(this.x, this.y, tileSize, tileSize);
             this.ctx.fillStyle = this.color
             this.ctx.fill()
             this.ctx.closePath()
@@ -36,6 +36,3 @@ class Tile {
         this.fg = random(drawShape)
     }
 }
-
-
-export default Tile
