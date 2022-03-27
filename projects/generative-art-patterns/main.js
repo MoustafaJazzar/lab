@@ -21,7 +21,6 @@ const init = () => {
 
             let bgTile = new Tile(tileXPos, tileYPos, bgTileColor, false, ctx)
             let fgTile = new Tile(tileXPos, tileYPos, fgTileColor, true, ctx)
-
             bgTile.draw()
             fgTile.draw()
         }

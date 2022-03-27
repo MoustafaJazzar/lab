@@ -1,4 +1,4 @@
-import './style.scss'
+import './main.scss'
 import projects from '../projects/projects.json';
 import linkIcon from './images/link.svg?raw'
 
@@ -7,7 +7,7 @@ const container = document.querySelector('.main');
 const year = document.querySelector('.year');
 
 
-const createDateBage = ({ date }) => {
+const createDateBadge = ({ date }) => {
     const node = document.createElement('time');
     const text = document.createElement('span');
     const _date = new Date(date).toISOString();
@@ -34,13 +34,12 @@ const createLinkIcon = () => {
     return node;
 }
 
-const createLink = ({ name, date }) => {
+const createLink = ({ name, date, slug }) => {
     const node = document.createElement('a');
     const text = document.createElement('span');
     text.className = "link-text"
 
-    const slug = formateSlug(name);
-    const badge = createDateBage({ date });
+    const badge = createDateBadge({ date });
     const icon = createLinkIcon()
 
     node.className = 'link';

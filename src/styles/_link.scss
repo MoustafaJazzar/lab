@@ -1,0 +1,88 @@
+.link {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas: "badge text icon";
+    padding: 16px;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: inherit;
+    transition: all 0.1s ease-in-out;
+    border: 1px solid transparent;
+    &:hover,
+    &:focus {
+        border: 1px solid var(--primaryColor);
+        outline: none;
+        .icon {
+            opacity: 1;
+        }
+    }
+}
+
+.badge {
+    text-transform: capitalize;
+    background: var(--gradient);
+    color: white;
+    font-size: 0.8125rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    border-radius: 16px;
+    white-space: nowrap;
+    vertical-align: middle;
+    box-sizing: border-box;
+    box-shadow: var(--elevation-z4);
+    grid-area: badge;
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: 12px;
+        padding-right: 12px;
+        white-space: nowrap;
+        line-height: 32px;
+    }
+}
+
+.link-text {
+    grid-area: text;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    margin-left: auto;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    color: var(--primaryColor);
+    grid-area: icon;
+}
+
+@media (max-width: 500px) {
+    .link {
+        background: var(--gradient);
+        color: #fafafa;
+        gap: var(--gap);
+    }
+    .badge {
+        background: none;
+        box-shadow: none;
+        justify-content: left;
+        grid-area: 1/1/1/1;
+    }
+    .link-text {
+        padding: 0 12px;
+        grid-area: 2/2/2/1;
+    }
+    .icon {
+        display: none;
+    }
+}

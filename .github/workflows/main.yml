@@ -20,8 +20,8 @@ jobs:
       - name: Build Material Cards
         run: cd projects/material-cards && npm install && npm run build
 
-      - name: Build Canvas
-        run: cd projects/canvas && npm install && npm run build
+      - name: Build Stripe Canvas
+        run: cd projects/stripe-canvas && npm install && npm run build
 
       - name: Build Neumorphism Soft UI Buttons
         run: cd projects/neumorphism-soft-ui-buttons && npm install && npm run build
@@ -39,7 +39,7 @@ jobs:
         run: cd projects/auto-hide-navigation-toolbar && npm install && npm run build
 
       - name: Build Patterns
-        run: cd projects/patterns && npm install && npm run build
+        run: cd projects/generative-art-patterns && npm install && npm run build
 
       - name: Prepare Files for Firebase Deploy
         run: node prepareFirebaseHosting.js

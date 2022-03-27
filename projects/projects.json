@@ -1,37 +1,51 @@
 [{
         "date": "23 nov 2021",
-        "name": "Toast"
+        "name": "Toast",
+        "slug": "toast"
     },
     {
         "date": "17 jan 2022",
-        "name": "material Cards"
+        "name": "Material Cards",
+        "slug": "material-cards"
     },
     {
         "date": "18 jan 2022",
-        "name": "Canvas"
+        "name": "Stripe Canvas",
+        "slug": "stripe-canvas"
     },
     {
         "date": "26 jan 2022",
-        "name": "Neumorphism Soft UI Buttons"
+        "name": "Neumorphism Soft UI Buttons",
+        "slug": "neumorphism-soft-UI-buttons"
     },
     {
         "date": "28 jan 2022",
-        "name": "Waves"
+        "name": "Waves",
+        "slug": "waves"
     },
     {
         "date": "29 jan 2022",
-        "name": "Accordion"
+        "name": "Accordion",
+        "slug": "accordion"
     },
     {
         "date": "10 feb 2022",
-        "name": "Secure Password Generator"
+        "name": "Secure Password Generator",
+        "slug": "secure-password-generator"
     },
     {
         "date": "26 feb 2022",
-        "name": "Auto hide Navigation Toolbar"
+        "name": "Auto hide Navigation Toolbar",
+        "slug": "auto-hide-navigation-toolbar"
     },
     {
         "date": "07 mar 2022",
-        "name": "Patterns"
+        "name": "Generative art - Patterns",
+        "slug": "generative-art-patterns"
+    },
+    {
+        "date": "27 mar 2022",
+        "name": "Generative art - Flowers",
+        "slug": "generative-art-flowers"
     }
 ]

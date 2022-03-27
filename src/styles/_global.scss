@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --gap: 8px;
+    --primaryColor: #1976d2;
+    --primaryColorAlt: #0453a3;
+    --textColor: #1a1f36;
+    --footerColor: #fafafa;
+    --gradient: linear-gradient( 135deg, var(--primaryColor), var(--primaryColorAlt));
+    --elevation-z4: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
+html {
+    block-size: 100%;
+    inline-size: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-size-adjust: 100%;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    display: grid;
+    color: var(--textColor);
+}

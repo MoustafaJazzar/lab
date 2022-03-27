@@ -73,10 +73,9 @@ const rectBottom = (x, y, ctx) => {
     ctx.rect(x, y + (tileSize / 2), tileSize, tileSize / 2);
 }
 const frame = (x, y, ctx) => {
-    const lineWidth = (tileSize * .15)
-    const startPoint = lineWidth / 2;
-    ctx.lineWidth = lineWidth
-    ctx.strokeRect(x + startPoint, y + startPoint, tileSize - lineWidth, tileSize - lineWidth)
+    const startPoint = (tileSize * .15)
+    const _size = tileSize - (tileSize * .30)
+    ctx.rect(x + startPoint, y + startPoint, _size, _size);
 }
 const triBottomLeft = (x, y, ctx) => {
     ctx.moveTo(x, y);
@@ -144,31 +143,50 @@ const circleFull = (x, y, ctx) => {
     ctx.arc(x + tileSize / 2, y + tileSize / 2, tileSize / 2, 0, PI2, false);
 }
 
-export const drawShape = [
+const dotShapes = [
     dotTopLeft,
     dotTopRight,
     dotBottomLeft,
-    dotBottomRight,
+    dotBottomRight
+]
+const triShapes = [
     triTopLeft,
     triTopRight,
     triBottomLeft,
-    triBottomRight,
+    triBottomRight
+]
+const tri2Shapes = [
+    triTop,
+    triBottom,
+    triRight,
+    triLeft
+]
+const circleShapes = [
     circleTopLeft,
     circleTopRight,
     circleBottomLeft,
     circleBottomRight,
-    circleFull,
+    circleFull
+]
+const arcShapes = [
     arcTop,
     arcBottom,
     arcRight,
-    arcLeft,
+    arcLeft
+]
+const rectShapes = [
     rectTop,
     rectBottom,
     rectRight,
     rectLeft,
-    frame,
-    // triTop,
-    // triBottom,
-    // triRight,
-    // triLeft,
+    frame
+]
+
+export const drawShape = [
+    ...dotShapes,
+    ...triShapes,
+    ...circleShapes,
+    ...arcShapes,
+    ...rectShapes,
+    // ...tri2Shapes,
 ]

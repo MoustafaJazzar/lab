@@ -12,19 +12,15 @@ export class Tile {
     }
 
     draw() {
+        this.ctx.beginPath()
+        this.ctx.fillStyle = this.color
         if (!this.isFgTile) {
-            this.ctx.beginPath()
             this.ctx.rect(this.x, this.y, tileSize, tileSize);
-            this.ctx.fillStyle = this.color
             this.ctx.fill()
-            this.ctx.closePath()
         } else {
-            this.ctx.beginPath()
             this.fg(this.x, this.y, this.ctx)
-            this.ctx.fillStyle = this.color;
-            this.ctx.strokeStyle = this.color;
             this.ctx.fill()
-            this.ctx.closePath()
         }
+        this.ctx.closePath()
     }
 }
