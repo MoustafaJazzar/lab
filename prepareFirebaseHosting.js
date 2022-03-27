@@ -1,19 +1,19 @@
 const fse = require('fs-extra');
 const directories = require('./projects/projects.json');
 
-let formateSourceDirectoryName = (str) => {
-    const dir = str.toLowerCase().replace(/ /g, '-');
+let formateSourceDirectoryName = (slug) => {
+    const dir = slug.toLowerCase()
     return `./projects/${dir}/dist`;
 }
 
-let formateDestinationDirectoryName = (str) => {
-    const dir = str.toLowerCase().replace(/ /g, '-');
+let formateDestinationDirectoryName = (slug) => {
+    const dir = slug.toLowerCase().replace(/ /g, '-');
     return `./public/${dir}`;
 }
 
-directories.forEach(({ name, slug }) => {
-    const srcDir = slug.toLowerCase()
-    const destDir = formateDestinationDirectoryName(name);
+directories.forEach(({ slug }) => {
+    const srcDir = formateSourceDirectoryName(slug)
+    const destDir = formateDestinationDirectoryName(slug);
     fse.copySync(srcDir, destDir, { overwrite: true }, (err) => {
         if (err) {
             console.error(err);
