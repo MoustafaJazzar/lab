@@ -11,8 +11,8 @@ let formateDestinationDirectoryName = (str) => {
     return `./public/${dir}`;
 }
 
-directories.forEach(({ name }) => {
-    const srcDir = formateSourceDirectoryName(name)
+directories.forEach(({ name, slug }) => {
+    const srcDir = slug.toLowerCase()
     const destDir = formateDestinationDirectoryName(name);
     fse.copySync(srcDir, destDir, { overwrite: true }, (err) => {
         if (err) {
