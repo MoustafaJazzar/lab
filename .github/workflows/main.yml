@@ -44,6 +44,9 @@ jobs:
       - name: Build Flowers
         run: cd projects/generative-art-flowers && npm install && npm run build
 
+      - name: Build Wrap
+        run: cd projects/wrap-canvas && npm install && npm run build
+
       - name: Prepare Files for Firebase Deploy
         run: node prepareFirebaseHosting.js
 
