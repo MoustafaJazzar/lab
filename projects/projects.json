@@ -16,7 +16,7 @@
     {
         "date": "26 jan 2022",
         "name": "Neumorphism Soft UI Buttons",
-        "slug": "neumorphism-soft-UI-buttons"
+        "slug": "neumorphism-soft-ui-buttons"
     },
     {
         "date": "28 jan 2022",
@@ -47,5 +47,10 @@
         "date": "27 mar 2022",
         "name": "Generative art - Flowers",
         "slug": "generative-art-flowers"
+    },
+    {
+        "date": "11 apr 2022",
+        "name": "Wrap Canvas",
+        "slug": "wrap-canvas"
     }
 ]
