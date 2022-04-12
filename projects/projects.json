@@ -52,5 +52,10 @@
         "date": "11 apr 2022",
         "name": "Wrap Canvas",
         "slug": "wrap-canvas"
+    },
+    {
+        "date": "12 apr 2022",
+        "name": "Noise",
+        "slug": "noise"
     }
 ]
