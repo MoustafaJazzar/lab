@@ -57,5 +57,10 @@
         "date": "12 apr 2022",
         "name": "Noise",
         "slug": "noise"
+    },
+    {
+        "date": "13 apr 2022",
+        "name": "Mandelbrot Set",
+        "slug": "mandelbrot-set"
     }
 ]

@@ -50,6 +50,9 @@ jobs:
       - name: Build Noise
         run: cd projects/noise && npm install && npm run build
 
+      - name: Build Mandelbrot Set
+        run: cd projects/mandelbrot-set && npm install && npm run build
+
       - name: Prepare Files for Firebase Deploy
         run: node prepareFirebaseHosting.js
 
