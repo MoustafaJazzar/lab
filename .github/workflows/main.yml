@@ -53,6 +53,9 @@ jobs:
       - name: Build Mandelbrot Set
         run: cd projects/mandelbrot-set && npm install && npm run build
 
+      - name: Build Ants
+        run: cd projects/generative-art-ants && npm install && npm run build
+
       - name: Prepare Files for Firebase Deploy
         run: node prepareFirebaseHosting.js
 

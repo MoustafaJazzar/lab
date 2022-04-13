@@ -62,5 +62,10 @@
         "date": "13 apr 2022",
         "name": "Mandelbrot Set",
         "slug": "mandelbrot-set"
+    },
+    {
+        "date": "14 apr 2022",
+        "name": "Generative art Ants",
+        "slug": "generative-art-ants"
     }
 ]
