@@ -1,0 +1,13 @@
+{
+    "name": "generative-art-ink",
+    "version": "0.0.0",
+    "scripts": {
+        "start": "vite",
+        "dev": "vite",
+        "build": "vite build --base=./",
+        "serve": "vite preview"
+    },
+    "devDependencies": {
+        "vite": "^2.7.2"
+    }
+}
