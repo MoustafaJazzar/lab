@@ -72,5 +72,10 @@
         "date": "15 apr 2022",
         "name": "Generative art - Ink",
         "slug": "generative-art-ink"
+    },
+    {
+        "date": "15 apr 2022",
+        "name": "Generative art - Lines",
+        "slug": "generative-art-lines"
     }
 ]
