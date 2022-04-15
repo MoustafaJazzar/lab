@@ -77,5 +77,10 @@
         "date": "15 apr 2022",
         "name": "Generative art - Lines",
         "slug": "generative-art-lines"
+    },
+    {
+        "date": "16 apr 2022",
+        "name": "Perlin Noise Visualization",
+        "slug": "perlin-noise-visualization"
     }
 ]

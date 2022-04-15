@@ -62,6 +62,9 @@ jobs:
       - name: Build Lines
         run: cd projects/generative-art-lines && npm install && npm run build
 
+      - name: Build Perlin Noise
+        run: cd projects/perlin-noise-visualization && npm install && npm run build
+
       - name: Prepare Files for Firebase Deploy
         run: node prepareFirebaseHosting.js
 
