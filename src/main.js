@@ -2,7 +2,6 @@ import './main.scss'
 import projects from '../projects/projects.json';
 import linkIcon from './images/link.svg?raw'
 
-const BASE_URL = 'https://lab.moustafajazzar.com/';
 const container = document.querySelector('.main');
 const year = document.querySelector('.year');
 
@@ -21,11 +20,6 @@ const createDateBadge = ({ date }) => {
     return node;
 }
 
-const formateSlug = (str) => {
-    return str.toLowerCase().replace(/ /g, '-')
-};
-
-
 const createLinkIcon = () => {
     const node = document.createElement('span');
     node.innerHTML = linkIcon;
@@ -43,7 +37,7 @@ const createLink = ({ name, date, slug }) => {
     const icon = createLinkIcon()
 
     node.className = 'link';
-    node.href = `${BASE_URL}${slug}/`;
+    node.href = `/${slug}/`;
     text.innerText = name;
 
     node.append(badge, text, icon)
